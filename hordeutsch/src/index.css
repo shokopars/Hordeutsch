@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: #0d0d0d;
+  color: #ffffff;
+  overflow-x: hidden;
+  width: 100%;
+  font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* استایل چپ به راست اختصاصی برای لوگو و عبارات آلمانی */
+.force-ltr {
+  direction: ltr !important;
+  unicode-bidi: bidi-override;
+}
+
+/* کلاس‌های روان‌کننده تغییر تم */
+.light-theme {
+  --bg-color: #f4f4f5;
+  --text-color: #18181b;
+}
