@@ -3,7 +3,7 @@ import CanvasView from "./components/CanvasView";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Lenis from "lenis"; // آپدیت شده به پکیج جدید
+import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -33,7 +33,7 @@ function App() {
 
     // ۴. کلین‌آپ کامل و تمیز
     return () => {
-      gsap.ticker.remove(updatePhysics); // جلوگیری از Memory Leak
+      gsap.ticker.remove(updatePhysics);
       lenis.destroy();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
@@ -56,27 +56,42 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="relative w-full overflow-hidden dir-rtl">
+      <div className="relative w-full overflow-x-hidden dir-rtl bg-[#030306] text-white">
+        {/* ۱. پس‌زمینه سه‌بعدی کهکشان (ثابت در کل صفحه) */}
         <CanvasView />
+
+        {/* ۲. نوبار فوقانی */}
         <Navbar onNavClick={handleScrollTo} />
-        
+
+        {/* ۳. محتوای اصلی سایت با z-index بالاتر و بک‌گراند شفاف/Glassmorphism */}
         <main className="relative z-10">
           <HeroSection onExplore={handleExplore} />
-          
-          <section id="kapitel-02" className="min-h-screen bg-black/5 backdrop-blur-md flex items-center justify-center text-4xl font-black">
+
+          <section
+            id="kapitel-02"
+            className="min-h-screen border-t border-white/10 bg-black/20 backdrop-blur-md flex items-center justify-center text-4xl font-black text-white"
+          >
             دوره‌ها (در حال ساخت...)
           </section>
 
-          {/* ترتیب آی‌دی‌ها مرتب شد */}
-          <section id="kapitel-03" className="min-h-screen bg-black/5 backdrop-blur-md flex items-center justify-center text-4xl font-black">
+          <section
+            id="kapitel-03"
+            className="min-h-screen border-t border-white/10 bg-black/20 backdrop-blur-md flex items-center justify-center text-4xl font-black text-white"
+          >
             ارتباط با ما (در حال ساخت...)
           </section>
 
-          <section id="kapitel-04" className="min-h-screen bg-black/5 backdrop-blur-md flex items-center justify-center text-4xl font-black">
+          <section
+            id="kapitel-04"
+            className="min-h-screen border-t border-white/10 bg-black/20 backdrop-blur-md flex items-center justify-center text-4xl font-black text-white"
+          >
             دیکشنری صوتی (در حال ساخت...)
           </section>
 
-          <section id="kapitel-05" className="min-h-screen bg-black/5 backdrop-blur-md flex items-center justify-center text-4xl font-black">
+          <section
+            id="kapitel-05"
+            className="min-h-screen border-t border-white/10 bg-black/20 backdrop-blur-md flex items-center justify-center text-4xl font-black text-white"
+          >
             تلفظ هوشمند (در حال ساخت...)
           </section>
         </main>
